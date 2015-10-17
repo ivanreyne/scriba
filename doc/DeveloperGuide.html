@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <title>Scriba Generated: DeveloperGuide</title>
+        <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                font-family: 'Source Serif Pro', serif;
+                font-size: 16pt;
+                line-height: 1.75em;
+                background-color: #ddd;
+            }
+            h1 {
+                font-size: 300%;
+            }
+            h2 {
+                font-size: 200%;
+                padding-left: 2em;
+            }
+            h3 {
+                font-size: 150%;
+                padding-left: 2.66em;
+            }
+            h4,h5,h6 {
+                font-size: 100%;
+                padding-left: 4em;
+            }
+            .document {
+                background-color: #fff;
+                border: 1px #666 solid;
+                box-shadow: 10px 10px 5px #999;
+                margin: 2em 7em;
+                padding: 2em;
+            }
+            .index a {
+                color: #000;
+                text-decoration: none;
+            }
+            .index.index_1 {
+                padding-left: 4em;
+            }
+            .index.index_2 {
+                padding-left: 6em;
+            }
+            .index.index_3,.index.index_4,.index.index_5,.index.index_5 {
+                padding-left: 8em;
+            }
+            .infoinline {
+                background-color: #fcc;
+                color: #600;
+                border: 1px #600 solid;
+                font-size: 75%;
+                font-style: italic;
+                padding: 2em;
+                margin-bottom: 1em;
+            }
+            .scrb_chapter {
+                padding-left: 4em;
+            }
+            .code {
+                font-family: 'Source Code Pro', sans;
+                background-color: #ccc;
+                color: #333;
+                border: 1px #333 solid;
+                padding: 1em;
+            }
+            .example {
+                background-color: #eee;
+                color: #333;
+                border: 1px #333 solid;
+                padding: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="document">
+            <div class="index">
+                <h1>Index</h1>
+<p class="index index_1">
+    <a href="#scrb_0">1. Introduction</a>
+</p><p class="index index_1">
+    <a href="#scrb_1">2. Function Descriptions</a>
+</p><p class="index index_2">
+    <a href="#scrb_2">2.1. help</a>
+</p><p class="index index_2">
+    <a href="#scrb_3">2.2. checkArguments</a>
+</p><p class="index index_2">
+    <a href="#scrb_4">2.3. readTemplates</a>
+</p><p class="index index_2">
+    <a href="#scrb_5">2.4. processFiles</a>
+</p><p class="index index_2">
+    <a href="#scrb_6">2.5. createDocuments</a>
+</p><p class="index index_2">
+    <a href="#scrb_7">2.6. printFileInfo</a>
+</p><p class="index index_1">
+    <a href="#scrb_8">3. Scriba Flow</a>
+</p>
+            </div>
+<h1 id="scrb_0">1. Introduction</h1>
+<div class="scrb_chapter">
+    
+    <p>
+     Scriba is written in Perl. A single Perl script, at the moment, with no extra custom libraries. The structure of the code itself follows a few simple rules: <ul><li>Creating as many functions as needed to separated the processes. </li><li>The functions are organised at the top of the script file. </li><li>The body of the script contains as little code as possible, calling the previously defined. </li><li>As we use it as an example we will exaggerate a bit with the comments! :-D </ul> We try to maintain the code itself clean even though we are not following any specific coding standards. </p><p> The variable names have a one letter (or more, for references) prefix that denotes their type: <ul><li>b: boolean </li><li>i: integer numbers </li><li>f: floating point numbers </li><li>s: strings </li><li>a: arrays </li><li>h: hashes </li><li>o: objects </li><li>ref: reference to ... </ul> 
+    </p>
+</div><h1 id="scrb_1">2. Function Descriptions</h1>
+<div class="scrb_chapter">
+    
+    <p>
+     This section gives a quick description of the functions. 
+    </p>
+</div><h2 id="scrb_2">2.1. help</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     Prints the help screen with the command line usage.  
+    </p>
+</div><h2 id="scrb_3">2.2. checkArguments</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     Checks the arguments passed to the script. We need to have at least one argument.  
+    </p>
+</div><h2 id="scrb_4">2.3. readTemplates</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     Reads the templates we are going to need to render the documentation.  
+    </p>
+</div><h2 id="scrb_5">2.4. processFiles</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     Processes the input directories looking for the project files and looks in everyone of them if there are any comment sections that need to be used as source for documentation.  
+    </p>
+</div><h2 id="scrb_6">2.5. createDocuments</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     This function takes as input the document information extracted from the source code files and renders the documents using the templates specified by the user on the command line.  
+    </p>
+</div><h2 id="scrb_7">2.6. printFileInfo</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     Prints the statistical information we have collected whilst processing the source code file for document definition sections.  
+    </p>
+</div><h1 id="scrb_8">3. Scriba Flow</h1>
+<div class="scrb_chapter">
+    
+    <p>
+    </ul> The Scriba software calls its functions/steps in the following order: <ul><li>checkArguments & help: to make sure we have been given all the information we need to run the software. </li><li>readTemplates: to read the templates we are going to use to generate the documentation. </li><li>processFiles: to extract the Scriba documentation information sections from the project source files. </li><li>createDocuments: to create the defined documents using the given templates </li><li>printFileInfo: if needed, to print the statistical information we have been collecting whilst processing the project source files. 
+    </p>
+</div>
+        </div>
+    </body>
+</html>

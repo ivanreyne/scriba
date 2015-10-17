@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Scriba Generated: {$scrb_document_name}</title>
+        <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                font-family: 'Source Serif Pro', serif;
+                font-size: 16pt;
+                line-height: 1.75em;
+                background-color: #ddd;
+            }
+            h1 {
+                font-size: 300%;
+            }
+            h2 {
+                font-size: 200%;
+                padding-left: 2em;
+            }
+            h3 {
+                font-size: 150%;
+                padding-left: 2.66em;
+            }
+            h4,h5,h6 {
+                font-size: 100%;
+                padding-left: 4em;
+            }
+            .document {
+                background-color: #fff;
+                border: 1px #666 solid;
+                box-shadow: 10px 10px 5px #999;
+                margin: 2em 7em;
+                padding: 2em;
+            }
+            .index a {
+                color: #000;
+                text-decoration: none;
+            }
+            .index.index_1 {
+                padding-left: 4em;
+            }
+            .index.index_2 {
+                padding-left: 6em;
+            }
+            .index.index_3,.index.index_4,.index.index_5,.index.index_5 {
+                padding-left: 8em;
+            }
+            .infoinline {
+                background-color: #fcc;
+                color: #600;
+                border: 1px #600 solid;
+                font-size: 75%;
+                font-style: italic;
+                padding: 2em;
+                margin-bottom: 1em;
+            }
+            .scrb_chapter {
+                padding-left: 4em;
+            }
+            .code {
+                font-family: 'Source Code Pro', sans;
+                background-color: #ccc;
+                color: #333;
+                border: 1px #333 solid;
+                padding: 1em;
+            }
+            .example {
+                background-color: #eee;
+                color: #333;
+                border: 1px #333 solid;
+                padding: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="document">
+            <div class="index">
+                <h1>Index</h1>
+{$scrb_index}
+            </div>
+{$scrb_chapters}
+        </div>
+    </body>
+</html>
