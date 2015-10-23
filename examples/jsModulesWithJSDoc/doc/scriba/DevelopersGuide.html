@@ -1,0 +1,220 @@
+<html>
+    <head>
+        <title>Scriba Generated: DevelopersGuide</title>
+        <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                font-family: 'Source Serif Pro', serif;
+                font-size: 16pt;
+                line-height: 1.75em;
+                background-color: #ddd;
+            }
+            h1 {
+                font-size: 300%;
+            }
+            h2 {
+                font-size: 200%;
+                padding-left: 2em;
+            }
+            h3 {
+                font-size: 150%;
+                padding-left: 2.66em;
+            }
+            h4,h5,h6 {
+                font-size: 100%;
+                padding-left: 4em;
+            }
+            .document {
+                background-color: #fff;
+                border: 1px #666 solid;
+                box-shadow: 10px 10px 5px #999;
+                margin: 2em 7em;
+                padding: 2em;
+            }
+            .index a {
+                color: #000;
+                text-decoration: none;
+            }
+            .index.index_1 {
+                padding-left: 4em;
+            }
+            .index.index_2 {
+                padding-left: 6em;
+            }
+            .index.index_3,.index.index_4,.index.index_5,.index.index_5 {
+                padding-left: 8em;
+            }
+            .infoinline {
+                background-color: #fcc;
+                color: #600;
+                border: 1px #600 solid;
+                font-size: 75%;
+                font-style: italic;
+                padding: 2em;
+                margin-bottom: 1em;
+            }
+            .scrb_chapter {
+                padding-left: 4em;
+            }
+            .code {
+                font-family: 'Source Code Pro', sans;
+                background-color: #ccc;
+                color: #333;
+                border: 1px #333 solid;
+                padding: 1em;
+            }
+            .example {
+                background-color: #eee;
+                color: #333;
+                border: 1px #333 solid;
+                padding: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="document">
+            <div class="index">
+                <h1>Index</h1>
+<p class="index index_1">
+    <a href="#scrb_0">1. Introduction</a>
+</p><p class="index index_1">
+    <a href="#scrb_1">2. Sample Application Structure</a>
+</p><p class="index index_2">
+    <a href="#scrb_2">2.1 Application</a>
+</p><p class="index index_2">
+    <a href="#scrb_3">2.2 Common Modules</a>
+</p><p class="index index_3">
+    <a href="#scrb_4">2.2.1 Common Module0</a>
+</p><p class="index index_3">
+    <a href="#scrb_5">2.2.2 Common Module1</a>
+</p><p class="index index_3">
+    <a href="#scrb_6">2.2.3 Common Module2</a>
+</p><p class="index index_2">
+    <a href="#scrb_7">2.3 Application Modules</a>
+</p><p class="index index_3">
+    <a href="#scrb_8">2.3.1 Application Module0</a>
+</p><p class="index index_3">
+    <a href="#scrb_9">2.3.2 Application Module1</a>
+</p><p class="index index_3">
+    <a href="#scrb_10">2.3.3 Application Module2</a>
+</p><p class="index index_3">
+    <a href="#scrb_11">2.3.4 Application Module3</a>
+</p><p class="index index_2">
+    <a href="#scrb_12">2.4 Extra Modules</a>
+</p><p class="index index_3">
+    <a href="#scrb_13">2.4.1 Extra Module0</a>
+</p><p class="index index_3">
+    <a href="#scrb_14">2.4.2 Extra Module1</a>
+</p><p class="index index_3">
+    <a href="#scrb_15">2.4.3 Extra Module2</a>
+</p><p class="index index_1">
+    <a href="#scrb_16">3. Some More Ipsum to Fill the Document</a>
+</p>
+            </div>
+<h1 id="scrb_0">1. Introduction</h1>
+<div class="scrb_chapter">
+    
+    <p>
+     This is an example to show the possibilities available with <b>Scriba</b> and JavaScript and how it integrates with <b>JSDoc</b> generated with the YUIDoc tool. </p><p> The sample application simply opens a page with a menu on top to load some of the modules it is made off. The sample application has been written using <a href="https://dojotoolkit.org/">Dojo</a> but is is just to have a "realistic" module structure to show properly the integration between <b>Scriba</b> and <b>JSDoc</b>. </p><p> The application has the following folder structure: <ul><li><i>app</i>: to hold the "application" modules. </li><li><i>common</i>: to hold the "common" modules. </li><li><i>extra</i>: to hold the "extra" modules. </ul> This is just some sample text and the real purpose is to look at it in conjunction with the sample application source code so you can see how the things defined on the code end up showing in the generated document.  
+    </p>
+</div><h1 id="scrb_1">2. Sample Application Structure</h1>
+<div class="scrb_chapter">
+    
+    <p>
+     This chapter gives a bit of an explanation on how the modules are organized. Note that the contents are generated from different files and the order they are in the files system does not actually matters as <b>Scriba</b> uses an order based on the section numbers defined.  
+    </p>
+</div><h2 id="scrb_2">2.1 Application</h2>
+<div class="scrb_chapter">
+    
+    <p>
+      The <a href="../jsdoc/classes/Application.html">Application</a> class holds the main functionality of the application. In the <a href="../jsdoc/classes/Application.html">Application</a> we define the main HTML content and structure of the application. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.  </p><p> The <a href="../jsdoc/classes/Application.html#method_createIn">Application.createIn</a> method will use the Dojo functions to put the HTML previously defined into the web browser DOM. After that it will create some click handlers on the application menu to execute actions when the menu options are selected.  
+    </p>
+</div><h2 id="scrb_3">2.2 Common Modules</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     These are the "common" modules.  
+    </p>
+</div><h3 id="scrb_4">2.2.1 Common Module0</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/CommonModule0.html">CommonModule0</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Strip steak ribeye pastrami pig turducken. Pancetta meatloaf  beef ribs landjaeger pork picanha pork chop turducken  hamburger prosciutto sirloin leberkas pastrami jowl.  Flank chuck pastrami alcatra venison, filet mignon cow  prosciutto. Ground round cow beef ribs, chuck fatback  pastrami bresaola venison spare ribs boudin tri-tip short  ribs kielbasa. Pork belly prosciutto beef cupim picanha  venison pastrami shankle pork loin short ribs alcatra  spare ribs rump meatloaf. Swine turkey boudin brisket pork  loin frankfurter ribeye rump hamburger.  
+    </p>
+</div><h3 id="scrb_5">2.2.2 Common Module1</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/CommonModule1.html">CommonModule1</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Jowl picanha alcatra, leberkas boudin ribeye porchetta  corned beef sausage chicken pastrami pork kevin tenderloin  swine. Biltong meatloaf shoulder landjaeger pork chop tail  tenderloin kielbasa fatback brisket. Shoulder beef ribs  pork chop tail tongue meatloaf picanha andouille cupim  chuck salami. Cow ball tip porchetta, hamburger short ribs  tri-tip landjaeger meatloaf chuck sausage.  
+    </p>
+</div><h3 id="scrb_6">2.2.3 Common Module2</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/CommonModule2.html">CommonModule2</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Doner flank ham hock chicken shank. Rump ground round picanha porchetta leberkas boudin sirloin t-bone. Tenderloin  pancetta pork fatback flank, porchetta spare ribs venison  hamburger ground round kevin. Corned beef ham strip steak  beef ribs, ribeye salami turducken bresaola kielbasa rump  landjaeger chuck. Pork belly turkey swine, kielbasa jowl  ribeye doner.  
+    </p>
+</div><h2 id="scrb_7">2.3 Application Modules</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     These are the "application" modules.  
+    </p>
+</div><h3 id="scrb_8">2.3.1 Application Module0</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/AppModule0.html">AppModule0</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Kevin short ribs hamburger frankfurter landjaeger ball tip  pig pancetta beef chicken fatback prosciutto picanha  turducken capicola. Strip steak picanha filet mignon,  spare ribs ribeye rump pancetta capicola short ribs jowl  chuck frankfurter landjaeger sirloin ham. Kielbasa filet  mignon turkey andouille bacon turducken tongue bresaola  cupim porchetta sausage. Frankfurter hamburger andouille  meatloaf, flank ham hock beef shoulder tenderloin venison  landjaeger sausage. Kielbasa ground round brisket swine  tongue t-bone.  
+    </p>
+</div><h3 id="scrb_9">2.3.2 Application Module1</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/AppModule1.html">AppModule1</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Pastrami ground round meatball, doner strip steak kevin  fatback pig biltong chuck prosciutto brisket. Turkey chuck  boudin hamburger. Pastrami shoulder ground round venison,  pancetta biltong turkey ball tip t-bone kevin. Kevin sirloin  prosciutto pig shank boudin meatball cupim chicken strip  steak sausage biltong ham hock salami doner. Biltong spare  ribs tongue alcatra cow tenderloin rump. Shankle swine  chuck venison jerky flank.  
+    </p>
+</div><h3 id="scrb_10">2.3.3 Application Module2</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/AppModule2.html">AppModule2</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Prosciutto shankle tri-tip pork belly sirloin. Shoulder  t-bone biltong ground round ball tip pork chop pork belly  jowl boudin pig. Chicken brisket doner, cow strip steak  prosciutto landjaeger drumstick bacon short loin swine.  Drumstick brisket short loin pastrami sirloin fatback  capicola bresaola tenderloin spare ribs biltong frankfurter.  
+    </p>
+</div><h3 id="scrb_11">2.3.4 Application Module3</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/AppModule3.html">AppModule3</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Capicola turducken jerky, turkey meatball spare ribs  bresaola. Prosciutto spare ribs sirloin ham hock pastrami.  Meatball alcatra landjaeger, chicken fatback andouille tail  ribeye drumstick meatloaf short ribs. Jerky porchetta  bresaola filet mignon turkey. Kevin tongue chuck, chicken  pork doner spare ribs swine ham hock brisket tenderloin  turducken short loin beef.<br/> <br/> Pork shank flank beef ribs, filet mignon ham brisket corned  beef picanha rump. Jowl capicola short ribs frankfurter  ground round. Flank chuck filet mignon shankle spare ribs  brisket capicola sirloin shank landjaeger ham hock short  loin turducken tenderloin kevin. Chuck t-bone pancetta strip  steak, sausage tail andouille.  
+    </p>
+</div><h2 id="scrb_12">2.4 Extra Modules</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     These are the "extra" modules.  
+    </p>
+</div><h3 id="scrb_13">2.4.1 Extra Module0</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/ExtraModule0.html">ExtraModule0</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Spare ribs kielbasa corned beef pastrami, pork chop  turducken drumstick. Pork chop beef ribs hamburger bresaola,  brisket landjaeger strip steak drumstick bacon kevin  chicken pork loin. Alcatra spare ribs doner, fatback  pastrami jowl beef beef ribs sirloin. Boudin turkey  kielbasa, sausage turducken picanha shank pig cupim  tenderloin biltong kevin. Beef ribs turducken jerky  pancetta pork jowl tongue sirloin. Jowl turkey landjaeger  pig, boudin corned beef beef sirloin.  
+    </p>
+</div><h3 id="scrb_14">2.4.2 Extra Module1</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/ExtraModule1.html">ExtraModule1</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Brisket frankfurter pancetta tongue pastrami cupim kevin.  Biltong tenderloin sirloin, bacon prosciutto bresaola rump  picanha capicola tail cow ball tip. Ribeye turducken salami  beef ribs cupim shank cow turkey. Capicola pig jowl  shoulder, pastrami pork belly bresaola chuck tri-tip.  
+    </p>
+</div><h3 id="scrb_15">2.4.3 Extra Module2</h3>
+<div class="scrb_chapter">
+    
+    <p>
+      <a href="../jsdoc/classes/ExtraModule2.html">ExtraModule2</a> Class. Please note that the class description is shared between <b>Scriba</b> and <b>JSDoc</b>.<br/> <br/> Some Ipsum:<br/> Bacon ipsum dolor amet ham cow t-bone biltong capicola  doner. Beef ribs corned beef sausage, shank short ribs  shoulder brisket filet mignon bresaola kielbasa turkey  pork belly. Pancetta alcatra turkey, ham landjaeger leberkas  pork loin. Ball tip cupim ground round, turducken  landjaeger pork chop pig porchetta bacon corned beef salami  kielbasa. Fatback jerky t-bone ham. Capicola ground round  sirloin, pork loin biltong drumstick chuck pork belly  boudin strip steak hamburger pork chop picanha corned beef  filet mignon. Alcatra leberkas shank turducken shankle  doner capicola kielbasa biltong venison bacon landjaeger.  
+    </p>
+</div><h1 id="scrb_16">3. Some More Ipsum to Fill the Document</h1>
+<div class="scrb_chapter">
+    
+    <p>
+     Bacon ipsum dolor amet spare ribs ball tip porchetta, shoulder doner pork pork chop rump sausage shankle. Tenderloin ball tip pork belly cow pork  turkey porchetta venison. Landjaeger boudin porchetta, pancetta pork chop  leberkas chicken turducken jerky ham shoulder. Shank shoulder rump beef ribs  shankle doner ball tip picanha sausage. Jerky fatback cow meatloaf  tenderloin kielbasa. Cupim tri-tip pork loin short ribs, hamburger sausage  pork shankle. Ham hock fatback chuck rump prosciutto kielbasa. </p><p> Turducken salami pork shank, bresaola capicola beef ribs venison sirloin  meatball ground round ball tip kevin. Sausage ball tip jerky, meatloaf  kielbasa ground round turkey alcatra leberkas pig boudin. Ground round  pork loin capicola pastrami. Salami kielbasa ham t-bone rump  shankle prosciutto, picanha tongue kevin leberkas spare ribs venison beef  ribs. Ball tip rump landjaeger kielbasa, jerky turducken shank cow beef  ribs. T-bone kevin porchetta salami, ham hock beef turkey strip steak  tenderloin prosciutto shankle alcatra leberkas biltong. Drumstick venison  short ribs sausage meatloaf pancetta. </p><p> Brisket ball tip pork belly, shankle bacon andouille pork loin doner ham  hock ground round jowl beef. Kielbasa hamburger leberkas drumstick. Tri-tip  kevin chuck, ball tip shank tongue swine capicola drumstick picanha strip  steak meatball. Kevin shankle venison bacon ham hock, drumstick jowl  hamburger kielbasa t-bone pork chop fatback chicken pancetta capicola.  Chuck doner tail short ribs, sirloin cupim porchetta tenderloin swine  cow boudin pig fatback strip steak. Pig chicken ball tip, chuck prosciutto  venison doner ribeye pork chop hamburger pork swine.  
+    </p>
+</div>
+        </div>
+    </body>
+</html>

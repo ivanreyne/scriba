@@ -1,0 +1,670 @@
+{
+    "project": {},
+    "files": {
+        "js_src/app/modules/app/AppModule0.js": {
+            "name": "js_src/app/modules/app/AppModule0.js",
+            "modules": {
+                "modules/app": 1
+            },
+            "classes": {
+                "AppModule0": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/app/AppModule1.js": {
+            "name": "js_src/app/modules/app/AppModule1.js",
+            "modules": {},
+            "classes": {
+                "AppModule1": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/app/AppModule2.js": {
+            "name": "js_src/app/modules/app/AppModule2.js",
+            "modules": {},
+            "classes": {
+                "AppModule2": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/app/AppModule3.js": {
+            "name": "js_src/app/modules/app/AppModule3.js",
+            "modules": {},
+            "classes": {
+                "AppModule3": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/common/CommonModule0.js": {
+            "name": "js_src/app/modules/common/CommonModule0.js",
+            "modules": {
+                "modules/common": 1
+            },
+            "classes": {
+                "CommonModule0": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/common/CommonModule1.js": {
+            "name": "js_src/app/modules/common/CommonModule1.js",
+            "modules": {},
+            "classes": {
+                "CommonModule1": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/common/CommonModule2.js": {
+            "name": "js_src/app/modules/common/CommonModule2.js",
+            "modules": {},
+            "classes": {
+                "CommonModule2": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/extra/ExtraModule0.js": {
+            "name": "js_src/app/modules/extra/ExtraModule0.js",
+            "modules": {
+                "modules/extra": 1
+            },
+            "classes": {
+                "ExtraModule0": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/extra/ExtraModule1.js": {
+            "name": "js_src/app/modules/extra/ExtraModule1.js",
+            "modules": {},
+            "classes": {
+                "ExtraModule1": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/modules/extra/ExtraModule2.js": {
+            "name": "js_src/app/modules/extra/ExtraModule2.js",
+            "modules": {},
+            "classes": {
+                "ExtraModule2": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/Application.js": {
+            "name": "js_src/app/Application.js",
+            "modules": {
+                "app": 1
+            },
+            "classes": {
+                "Application": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/Globals.js": {
+            "name": "js_src/app/Globals.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js_src/app/MainEntryPoint.js": {
+            "name": "js_src/app/MainEntryPoint.js",
+            "modules": {},
+            "classes": {
+                "MainEntryPoint": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "modules/app": {
+            "name": "modules/app",
+            "submodules": {},
+            "classes": {
+                "AppModule0": 1,
+                "AppModule1": 1,
+                "AppModule2": 1,
+                "AppModule3": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js_src/app/modules/app/AppModule3.js",
+            "line": 30,
+            "description": "Test module App Module0",
+            "author": "Ivan Reyné"
+        },
+        "modules/common": {
+            "name": "modules/common",
+            "submodules": {},
+            "classes": {
+                "CommonModule0": 1,
+                "CommonModule1": 1,
+                "CommonModule2": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js_src/app/modules/common/CommonModule2.js",
+            "line": 30,
+            "description": "Test module Common Module0",
+            "author": "Ivan Reyné"
+        },
+        "modules/extra": {
+            "name": "modules/extra",
+            "submodules": {},
+            "classes": {
+                "ExtraModule0": 1,
+                "ExtraModule1": 1,
+                "ExtraModule2": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js_src/app/modules/extra/ExtraModule2.js",
+            "line": 30,
+            "description": "Test module Extra Module0",
+            "author": "Ivan Reyné"
+        },
+        "app": {
+            "name": "app",
+            "submodules": {},
+            "classes": {
+                "Application": 1,
+                "MainEntryPoint": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "js_src/app/MainEntryPoint.js",
+            "line": 23,
+            "description": "Application, class to manage the entire application",
+            "author": "Ivan Reyné",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "AppModule0": {
+            "name": "AppModule0",
+            "shortname": "AppModule0",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/app",
+            "namespace": "",
+            "file": "js_src/app/modules/app/AppModule0.js",
+            "line": 34,
+            "description": "AppModule0 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nKevin short ribs hamburger frankfurter landjaeger ball tip \npig pancetta beef chicken fatback prosciutto picanha \nturducken capicola. Strip steak picanha filet mignon, \nspare ribs ribeye rump pancetta capicola short ribs jowl \nchuck frankfurter landjaeger sirloin ham. Kielbasa filet \nmignon turkey andouille bacon turducken tongue bresaola \ncupim porchetta sausage. Frankfurter hamburger andouille \nmeatloaf, flank ham hock beef shoulder tenderloin venison \nlandjaeger sausage. Kielbasa ground round brisket swine \ntongue t-bone.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "AppModule0"
+            }
+        },
+        "AppModule1": {
+            "name": "AppModule1",
+            "shortname": "AppModule1",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/app",
+            "namespace": "",
+            "file": "js_src/app/modules/app/AppModule1.js",
+            "line": 30,
+            "description": "AppModule1 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nPastrami ground round meatball, doner strip steak kevin \nfatback pig biltong chuck prosciutto brisket. Turkey chuck \nboudin hamburger. Pastrami shoulder ground round venison, \npancetta biltong turkey ball tip t-bone kevin. Kevin sirloin \nprosciutto pig shank boudin meatball cupim chicken strip \nsteak sausage biltong ham hock salami doner. Biltong spare \nribs tongue alcatra cow tenderloin rump. Shankle swine \nchuck venison jerky flank.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "AppModule1"
+            }
+        },
+        "AppModule2": {
+            "name": "AppModule2",
+            "shortname": "AppModule2",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/app",
+            "namespace": "",
+            "file": "js_src/app/modules/app/AppModule2.js",
+            "line": 30,
+            "description": "AppModule2 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nProsciutto shankle tri-tip pork belly sirloin. Shoulder \nt-bone biltong ground round ball tip pork chop pork belly \njowl boudin pig. Chicken brisket doner, cow strip steak \nprosciutto landjaeger drumstick bacon short loin swine. \nDrumstick brisket short loin pastrami sirloin fatback \ncapicola bresaola tenderloin spare ribs biltong frankfurter.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "AppModule2"
+            }
+        },
+        "AppModule3": {
+            "name": "AppModule3",
+            "shortname": "AppModule3",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/app",
+            "namespace": "",
+            "file": "js_src/app/modules/app/AppModule3.js",
+            "line": 30,
+            "description": "AppModule3 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nCapicola turducken jerky, turkey meatball spare ribs \nbresaola. Prosciutto spare ribs sirloin ham hock pastrami. \nMeatball alcatra landjaeger, chicken fatback andouille tail \nribeye drumstick meatloaf short ribs. Jerky porchetta \nbresaola filet mignon turkey. Kevin tongue chuck, chicken \npork doner spare ribs swine ham hock brisket tenderloin \nturducken short loin beef.<br/>\n<br/>\nPork shank flank beef ribs, filet mignon ham brisket corned \nbeef picanha rump. Jowl capicola short ribs frankfurter \nground round. Flank chuck filet mignon shankle spare ribs \nbrisket capicola sirloin shank landjaeger ham hock short \nloin turducken tenderloin kevin. Chuck t-bone pancetta strip \nsteak, sausage tail andouille.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "AppModule3"
+            }
+        },
+        "CommonModule0": {
+            "name": "CommonModule0",
+            "shortname": "CommonModule0",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/common",
+            "namespace": "",
+            "file": "js_src/app/modules/common/CommonModule0.js",
+            "line": 34,
+            "description": "CommonModule0 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nStrip steak ribeye pastrami pig turducken. Pancetta meatloaf \nbeef ribs landjaeger pork picanha pork chop turducken \nhamburger prosciutto sirloin leberkas pastrami jowl. \nFlank chuck pastrami alcatra venison, filet mignon cow \nprosciutto. Ground round cow beef ribs, chuck fatback \npastrami bresaola venison spare ribs boudin tri-tip short \nribs kielbasa. Pork belly prosciutto beef cupim picanha \nvenison pastrami shankle pork loin short ribs alcatra \nspare ribs rump meatloaf. Swine turkey boudin brisket pork \nloin frankfurter ribeye rump hamburger.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "CommonModule0"
+            }
+        },
+        "CommonModule1": {
+            "name": "CommonModule1",
+            "shortname": "CommonModule1",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/common",
+            "namespace": "",
+            "file": "js_src/app/modules/common/CommonModule1.js",
+            "line": 30,
+            "description": "CommonModule1 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nJowl picanha alcatra, leberkas boudin ribeye porchetta \ncorned beef sausage chicken pastrami pork kevin tenderloin \nswine. Biltong meatloaf shoulder landjaeger pork chop tail \ntenderloin kielbasa fatback brisket. Shoulder beef ribs \npork chop tail tongue meatloaf picanha andouille cupim \nchuck salami. Cow ball tip porchetta, hamburger short ribs \ntri-tip landjaeger meatloaf chuck sausage.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "CommonModule1"
+            }
+        },
+        "CommonModule2": {
+            "name": "CommonModule2",
+            "shortname": "CommonModule2",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/common",
+            "namespace": "",
+            "file": "js_src/app/modules/common/CommonModule2.js",
+            "line": 30,
+            "description": "CommonModule2 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nDoner flank ham hock chicken shank. Rump ground round\npicanha porchetta leberkas boudin sirloin t-bone. Tenderloin \npancetta pork fatback flank, porchetta spare ribs venison \nhamburger ground round kevin. Corned beef ham strip steak \nbeef ribs, ribeye salami turducken bresaola kielbasa rump \nlandjaeger chuck. Pork belly turkey swine, kielbasa jowl \nribeye doner.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "CommonModule2"
+            }
+        },
+        "ExtraModule0": {
+            "name": "ExtraModule0",
+            "shortname": "ExtraModule0",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/extra",
+            "namespace": "",
+            "file": "js_src/app/modules/extra/ExtraModule0.js",
+            "line": 34,
+            "description": "ExtraModule0 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nSpare ribs kielbasa corned beef pastrami, pork chop \nturducken drumstick. Pork chop beef ribs hamburger bresaola, \nbrisket landjaeger strip steak drumstick bacon kevin \nchicken pork loin. Alcatra spare ribs doner, fatback \npastrami jowl beef beef ribs sirloin. Boudin turkey \nkielbasa, sausage turducken picanha shank pig cupim \ntenderloin biltong kevin. Beef ribs turducken jerky \npancetta pork jowl tongue sirloin. Jowl turkey landjaeger \npig, boudin corned beef beef sirloin.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "ExtraModule0"
+            }
+        },
+        "ExtraModule1": {
+            "name": "ExtraModule1",
+            "shortname": "ExtraModule1",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/extra",
+            "namespace": "",
+            "file": "js_src/app/modules/extra/ExtraModule1.js",
+            "line": 30,
+            "description": "ExtraModule1 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nBrisket frankfurter pancetta tongue pastrami cupim kevin. \nBiltong tenderloin sirloin, bacon prosciutto bresaola rump \npicanha capicola tail cow ball tip. Ribeye turducken salami \nbeef ribs cupim shank cow turkey. Capicola pig jowl \nshoulder, pastrami pork belly bresaola chuck tri-tip.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "ExtraModule1"
+            }
+        },
+        "ExtraModule2": {
+            "name": "ExtraModule2",
+            "shortname": "ExtraModule2",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "modules/extra",
+            "namespace": "",
+            "file": "js_src/app/modules/extra/ExtraModule2.js",
+            "line": 30,
+            "description": "ExtraModule2 Class.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.<br/>\n<br/>\nSome Ipsum:<br/>\nBacon ipsum dolor amet ham cow t-bone biltong capicola \ndoner. Beef ribs corned beef sausage, shank short ribs \nshoulder brisket filet mignon bresaola kielbasa turkey \npork belly. Pancetta alcatra turkey, ham landjaeger leberkas \npork loin. Ball tip cupim ground round, turducken \nlandjaeger pork chop pig porchetta bacon corned beef salami \nkielbasa. Fatback jerky t-bone ham. Capicola ground round \nsirloin, pork loin biltong drumstick chuck pork belly \nboudin strip steak hamburger pork chop picanha corned beef \nfilet mignon. Alcatra leberkas shank turducken shankle \ndoner capicola kielbasa biltong venison bacon landjaeger.",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "ExtraModule2"
+            }
+        },
+        "Application": {
+            "name": "Application",
+            "shortname": "Application",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "js_src/app/Application.js",
+            "line": 91,
+            "description": "The Application class holds the main functionality of the\napplication. In the Application we define the main HTML\ncontent and structure of the application.\nPlease note that the class description is shared between\n*Scriba* and *JSDoc*.",
+            "extends": "AppLoop",
+            "is_constructor": 1,
+            "return": {
+                "description": "The generated object",
+                "type": "AppLoop"
+            }
+        },
+        "MainEntryPoint": {
+            "name": "MainEntryPoint",
+            "shortname": "MainEntryPoint",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "js_src/app/MainEntryPoint.js",
+            "line": 23,
+            "description": "Class to manage the application entry point",
+            "static": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "js_src/app/modules/app/AppModule0.js",
+            "line": 58,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "AppModule0",
+            "module": "modules/app"
+        },
+        {
+            "file": "js_src/app/modules/app/AppModule1.js",
+            "line": 52,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "AppModule1",
+            "module": "modules/app"
+        },
+        {
+            "file": "js_src/app/modules/app/AppModule2.js",
+            "line": 50,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "AppModule2",
+            "module": "modules/app"
+        },
+        {
+            "file": "js_src/app/modules/app/AppModule3.js",
+            "line": 58,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "AppModule3",
+            "module": "modules/app"
+        },
+        {
+            "file": "js_src/app/modules/common/CommonModule0.js",
+            "line": 58,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "CommonModule0",
+            "module": "modules/common"
+        },
+        {
+            "file": "js_src/app/modules/common/CommonModule1.js",
+            "line": 51,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "CommonModule1",
+            "module": "modules/common"
+        },
+        {
+            "file": "js_src/app/modules/common/CommonModule2.js",
+            "line": 51,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "CommonModule2",
+            "module": "modules/common"
+        },
+        {
+            "file": "js_src/app/modules/extra/ExtraModule0.js",
+            "line": 57,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "ExtraModule0",
+            "module": "modules/extra"
+        },
+        {
+            "file": "js_src/app/modules/extra/ExtraModule1.js",
+            "line": 49,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "ExtraModule1",
+            "module": "modules/extra"
+        },
+        {
+            "file": "js_src/app/modules/extra/ExtraModule2.js",
+            "line": 55,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "ExtraModule2",
+            "module": "modules/extra"
+        },
+        {
+            "file": "js_src/app/Application.js",
+            "line": 116,
+            "description": "Creates the object into the DOM",
+            "itemtype": "method",
+            "name": "createIn",
+            "params": [
+                {
+                    "name": "sWhere",
+                    "description": "DOM id where to put the object",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "Application",
+            "module": "app"
+        },
+        {
+            "file": "js_src/app/Globals.js",
+            "line": 13,
+            "description": "Software version",
+            "itemtype": "property",
+            "name": "sVersion",
+            "type": "String",
+            "default": "\"1.0\"",
+            "class": "MainEntryPoint",
+            "module": "app"
+        },
+        {
+            "file": "js_src/app/MainEntryPoint.js",
+            "line": 31,
+            "description": "Functions we need to call just after the page load has finished to start the application",
+            "static": 1,
+            "itemtype": "method",
+            "name": "loadApplication",
+            "return": {
+                "description": "",
+                "type": "Undefined"
+            },
+            "class": "MainEntryPoint",
+            "module": "app"
+        }
+    ],
+    "warnings": []
+}

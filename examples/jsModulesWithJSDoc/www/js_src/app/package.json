@@ -1,0 +1,19 @@
+{
+    "name": "app",
+    "description": "Scriba JavaScript Documentation Example",
+    "version": "1.0",
+    "keywords": [],
+    "maintainers": [],
+    "contributors": [],
+    "licenses": [],
+    "bugs": "",
+    "repositories": [],
+    "dependencies": {
+        "dojo": "~1.7.8",
+        "dijit": "~1.7.8",
+        "dojox": "~1.7.8"
+    },
+    "main": "src",
+    "homepage": "http://www.ivanreyne.ninja/",
+    "dojoBuild": "app.profile.js"
+}
