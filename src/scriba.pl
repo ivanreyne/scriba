@@ -387,7 +387,10 @@ sub processFiles {
             # file processing variables
             my $sLine = "";
             my $sCleanLine = "";
+            my $sCleanCode = "";
+            my $sCleanCodeSpaces = "";
             my $bInComments = 0;
+            my $bInCommentsCode = 0;
             my $bInCommentsLimit = 0;
             # to mark if we are in an "ul/ol" section
             my $bInList = 0;
@@ -409,13 +412,13 @@ sub processFiles {
                 # counting source code lines
                 $refhFileInfo->{$sFile}{NUM_LINES} ++;
                 chomp($sLine);
-                
+
                 # scrb:
                 # At the moment we have done extensive tests both in Perl and
                 # JavaScript. In theory it should also work on C/C++/Java/...
                 # but more languages are going to be added in the future.
                 # _
-                
+
                 # detecting if we are in a comments section
                 my $bComment = 0;
                 # C/C++/Perl/etc
@@ -463,11 +466,11 @@ sub processFiles {
                     # counting source code lines
                     $refhFileInfo->{$sFile}{NUM_COMMENTS} ++;
                 }
-                
+
                 # scrb: Chapter: 2.2.1. Document Organization
                 #
                 # All the Scriba sections are comments which their initial
-                # characters are *srcb:* The content of the section will be
+                # characters are *scrb:* The content of the section will be
                 # stored to be part of the documentation. The section ends
                 # when the comment section ends._
                 # As we are simply putting the content from the source code
@@ -481,7 +484,7 @@ sub processFiles {
                 # // This section will be part of the documentation.
                 # </div>
                 # _
-                
+
                 # detecting if we have started a Scriba comment section
                 if($bComment && !$bInComments) {
                     if($sCleanLine =~ /^\s*$refhParameters->{Scriba_ID}\s*(\d+)?/) {
@@ -541,7 +544,7 @@ sub processFiles {
                     # * Item 4_
                     # </div>
                     # _
-                    
+
                     # processing the line for inline text formating:
                     # "ul" sections
                     if($sCleanLine =~ /^\s*\*\s+(.+)/) {
@@ -553,7 +556,7 @@ sub processFiles {
                             $sCleanLine = "</li><li>$1";
                         }
                     }
-                    
+
                     # scrb:
                     # If inside a Scriba section we find a line (or a series
                     # of lines) starting with a *hash* Scriba will
@@ -594,7 +597,7 @@ sub processFiles {
                         $sCleanLine = "</ol>";
                         $bInList = 0;
                     }
-                    
+
                     # scrb:
                     # If inside a Scriba section we find a comment line that
                     # contains only an *underscore* this will tell Scriba to
@@ -618,7 +621,7 @@ sub processFiles {
                     # BBBB content, BBBB content, BBBB content, BBBB content
                     # </div>
                     # _
-                    
+
                     # paragraph break
                     if($sCleanLine eq "_") {
                         # having in mind we could have a paragraph break after
@@ -635,7 +638,7 @@ sub processFiles {
                             $sCleanLine = "</p><p>";
                         }
                     }
-                    
+
                     # scrb:
                     # We can apply some basic formats to the text we are
                     # typing just by enclosing between special characters.
@@ -654,7 +657,7 @@ sub processFiles {
                     # *minuses* for strikeout: -DDDD DDDD- content_
                     # </div>
                     # _
-                    
+
                     # bold text
                     $sCleanLine =~ s/(?<!\\)\*([\w\s;:,.-]*?\S)(?<!\\)\*/<b>$1<\/b>/g;
                     # italic text
@@ -663,7 +666,7 @@ sub processFiles {
                     $sCleanLine =~ s/(?<!\\)\+([\w\s;:,.-]*?\S)(?<!\\)\+/<u>$1<\/u>/g;
                     # strike through text
                     $sCleanLine =~ s/(?<!\\)\-([\w\s;:,.-]*?\S)(?<!\\)\-/<s>$1<\/s>/g;
-                    
+
                     # scrb:
                     # As the greater and less than symbols have special meaning
                     # in HTML we are going to need to escape them. If you want
@@ -698,7 +701,7 @@ sub processFiles {
                     # \&
                     # </div>
                     # _
-                    $sCleanLine =~ s/\\&/&amp;/g;                    
+                    $sCleanLine =~ s/\\&/&amp;/g;
                     # If we simply want to have a line break at the end of
                     # the line we can use the underscore character to mark
                     # that.
@@ -738,8 +741,8 @@ sub processFiles {
                     # For example this text is a good few comments below
                     # the following definition:
                     # <div class="code">
-                    # // srcb: Document: UserGuide_
-                    # // srcb: Chapter: 2.2. Scriba Sections and Functionality
+                    # // scrb: Document: UserGuide_
+                    # // scrb: Chapter: 2.2. Scriba Sections and Functionality
                     # </div>
                     # _
                     # Note that the name of the _document_ is going to be
@@ -776,6 +779,12 @@ sub processFiles {
                     if($sCleanLine =~ /^\s*$refhParameters->{Scriba_ID}\s*(\d+)?\s*$/) {
                         $bProcessed = 1;
                     }
+                    elsif($sCleanLine =~ /^\s*$refhParameters->{Scriba_ID}\s*code\s*begin\s*$/) {
+                        $bProcessed = 1;
+                    }
+                    elsif($sCleanLine =~ /^\s*$refhParameters->{Scriba_ID}\s*code\s*end\s*$/) {
+                        $bProcessed = 1;
+                    }
                     # if we are in a Scriba comment section with limit then
                     # we decrease the counter with each blanc line of comments
                     if($bInCommentsLimit && ($sCleanLine eq "")) {
@@ -798,6 +807,56 @@ sub processFiles {
                         }
                     }
                     #print "'" . $sCleanLine . "'\n";
+                }
+                # scrb: Chapter: 2.2.2. Document Formatting
+                # We can also create a special Scriba section that will contain
+                # code taken directly from the application source. We mark
+                # the place where we want to start dumping code with the
+                # special key "scrb: code begin" and it will dump everything
+                # until we find "scrb: code end".
+                # <div class="code">
+                # // scrb: code begin_
+                # real application code_
+                # // scrb: code end
+                # </div>
+                # _
+                # This will be rendered the following way:
+
+                # scrb: code begin
+                if($bInCommentsCode) {
+                    if($sCleanLine =~ /^\s*$refhParameters->{Scriba_ID}\s*code\s*end/) {
+                        $bInCommentsCode = 0;
+                        # replacing some special characters
+                        $sCleanCode =~ s/</&lt;/g;
+                        $sCleanCode =~ s/>/&gt;/g;
+                        $sCleanCode =~ s/\n/<br \/>/g;
+                        # adding the code within code sections
+                        $refhDocStructure->{$sDocument}{$sChapter}{CONTENT} .= '<pre class="code source_code">';
+                        $refhDocStructure->{$sDocument}{$sChapter}{CONTENT} .= $sCleanCode;
+                        $refhDocStructure->{$sDocument}{$sChapter}{CONTENT} .= '</pre>';
+                    }
+                    else {
+                        # removing as many initial blank spaces as the first
+                        # initial line has
+                        if($sCleanCode eq "") {
+                            if($sLine =~ /^(\s+)/) {
+                                $sCleanCodeSpaces = $1;
+                            }
+                        }
+                        $sLine =~ s/^$sCleanCodeSpaces//;
+                        $sCleanCode .= $sLine . "\n";
+                    }
+                }
+                # scrb: code end
+
+                # detecting if we have started a special Scriba code dump
+                # comment section
+                if($bComment && !$bInCommentsCode) {
+                    if($sCleanLine =~ /^\s*$refhParameters->{Scriba_ID}\s*code\s*begin/) {
+                        $bInCommentsCode = 1;
+                        $sCleanCode = "";
+                        $sCleanCodeSpaces = "";
+                    }
                 }
             }
             close (FILE);
@@ -857,7 +916,7 @@ sub createDocuments {
             my $sChapterId = 0;
             foreach my $sChapter (sort(keys %{$refhDocStructure->{$sDocument}})) {
                 my $sContent = $refhDocStructure->{$sDocument}{$sChapter}{CONTENT};
-                
+
                 # scrb: Chapter: 2.2.3. Linking with JSDoc
                 #
                 # One of the features we can activate is the linking of the
@@ -878,7 +937,7 @@ sub createDocuments {
                 # <div class="code">
                 # \<Module\>[(.#)\<Method\>]
                 # </div>
-                
+
                 # linking with jsdoc
                 if($refhParameters->{OUTPUT_JSDOC}) {
                     foreach my $sClass (keys(%{$refhFileInfo->{JSDOC}{CLASSES}})) {
@@ -984,7 +1043,7 @@ sub printFileInfo {
 
         my $fCommentsLines = 0;
         my $fScribaCommentsLines = 0;
-        
+
         # scrb: Document: UserGuide
         # scrb: Chapter: 2.3. Statistical Information
         #
@@ -1012,7 +1071,7 @@ sub printFileInfo {
         #   based on the above number of lines.
         # * The number of Scriba comment lines. And a percentage based on
         #   the above number of comments.
-        
+
         foreach my $sFile (sort(keys %{$refhFileInfo})) {
             if($sFile ne 'JSDOC') {
                 # counting the percentage of commented lines on the source code
@@ -1100,7 +1159,7 @@ else {
     #   templates
     # * printFileInfo: if needed, to print the statistical information we
     #   have been collecting whilst processing the project source files.
-    
+
     # initialising the document generation templates
     readTemplates(\%hArguments, \%hTemplates);
     # new document structure
