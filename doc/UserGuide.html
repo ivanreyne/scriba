@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>Scriba Generated: UserGuide</title>
+        <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                font-family: 'Source Serif Pro', serif;
+                font-size: 16pt;
+                line-height: 1.75em;
+                background-color: #ddd;
+            }
+            h1 {
+                font-size: 300%;
+            }
+            h2 {
+                font-size: 200%;
+                padding-left: 2em;
+            }
+            h3 {
+                font-size: 150%;
+                padding-left: 2.66em;
+            }
+            h4,h5,h6 {
+                font-size: 100%;
+                padding-left: 4em;
+            }
+            .document {
+                background-color: #fff;
+                border: 1px #666 solid;
+                box-shadow: 10px 10px 5px #999;
+                margin: 2em 7em;
+                padding: 2em;
+            }
+            .index a {
+                color: #000;
+                text-decoration: none;
+            }
+            .index.index_1 {
+                padding-left: 4em;
+            }
+            .index.index_2 {
+                padding-left: 6em;
+            }
+            .index.index_3,.index.index_4,.index.index_5,.index.index_5 {
+                padding-left: 8em;
+            }
+            .infoinline {
+                background-color: #fcc;
+                color: #600;
+                border: 1px #600 solid;
+                font-size: 75%;
+                font-style: italic;
+                padding: 2em;
+                margin-bottom: 1em;
+            }
+            .scrb_chapter {
+                padding-left: 4em;
+            }
+            .code {
+                font-family: 'Source Code Pro', sans;
+                background-color: #ccc;
+                color: #333;
+                border: 1px #333 solid;
+                padding: 1em;
+            }
+            .source_code {
+                font-size: 10pt;
+            }
+            .example {
+                background-color: #eee;
+                color: #333;
+                border: 1px #333 solid;
+                padding: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="document">
+            <div class="index">
+                <h1>Index</h1>
+<p class="index index_1">
+    <a href="#scrb_0">1. Introduction</a>
+</p><p class="index index_1">
+    <a href="#scrb_1">2. How Does it Work?</a>
+</p><p class="index index_2">
+    <a href="#scrb_2">2.1. Command Line Usage</a>
+</p><p class="index index_2">
+    <a href="#scrb_3">2.2. Scriba Sections and Functionality</a>
+</p><p class="index index_3">
+    <a href="#scrb_4">2.2.1. Document Organization</a>
+</p><p class="index index_3">
+    <a href="#scrb_5">2.2.2. Document Formatting</a>
+</p><p class="index index_3">
+    <a href="#scrb_6">2.2.3. Linking with JSDoc</a>
+</p><p class="index index_2">
+    <a href="#scrb_7">2.3. Statistical Information</a>
+</p>
+            </div>
+<h1 id="scrb_0">1. Introduction</h1>
+<div class="scrb_chapter">
+    
+    <p>
+     Scriba is a tool to generate documentation from source code. The content of the documentation is extracted directly from the source code and/or any other files found on the project tree. Unlike many other tools Scriba does not generate API-like documentation neither the generated documentation necessarily follows the same structure as the source code. </p><p> The purpose of Scriba is to provide an easy way to have source code and documentation mixed on the same set of files. The problem Scriba wants to solve is the mismatch between code and documentation that tends to occur on the life-cycle of a project, specially as the project grows older. What usually happens is that developers are busy producing code that works, and as documents are kept on completely different folder structures they never go and keep them up to date. Hopefully this script will be of great help for developers, specially on Agile and Extreme Programming environments where for their nature changes on the code happen a lot more often. </p><p> The main goal of Scriba is that we do not hinder the normal development work in any way: <ul><li>Scriba should not to give any extra work to the developers to create the documentation. </li><li>Scriba should not interfere with any other software documentation tools. </li><li>Scriba should not pollute the source code with strange syntax or extra sections. </li><li>Scriba documentation should be able to be used as code comments and the code comments should also be able to be used as Scriba documentation. </ul> With those principles in mind we made Scriba use the normal code comments sections to take the contents of the documents it will generate. We also have given the ability to format the text in a way that can easily be read as a normal text file but that will render nicely when exporting as a proper document. 
+    </p>
+</div><h1 id="scrb_1">2. How Does it Work?</h1>
+<div class="scrb_chapter">
+    
+    <p>
+     Scriba creates a list of text files to process using the Linux <i>find</i> command on the directory specified by the <i>-i</i> command line argument. We can also pass extra parameters to the find command with the <i>-ifind</i> parameter. This can be useful in case we need to exclude certain directories from the source code processing. For example, to exclude all the files from the "ckeditor" folder we can do: <div class="code"> &gt; scriba -o doc -ifind '! -path "*/ckeditor/*"' </div> </p><p> Each file is processed to look for Scriba encoded information. The order in which the files are processed is not important as Scriba generates the documents according to the section names and numbers as defined in the contents of the files and that is completely independent on the file they are defined into.<br/> Scriba will read the files and each time it detects that we are inside a comments section the software will check if that comment section contains any of the Scriba tags. If a Scriba tag is found it means that the given comment is going to be part of the generated documentation contents. Any content after the initial Scriba tag and until the end of the comment section will be put on the generated document. All that information is kept in memory so we can define and/or add information on the same generated document from completely different source files in completely different directories. </p><p>  Once all the documents have been processed the software proceeds to create all defined documents using the given templates and styles. 
+    </p>
+</div><h2 id="scrb_2">2.1. Command Line Usage</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     Srciba runs on the command line on Linux based system. It is a Perl script that uses some standard Linux commands to perform some of the actions. For example we use the "find" command to be able to find and filter the files we will process for documentation contents. </p><p> The script command line accepts the following parameters: </p><p> <div class="code"> scriba [-i &lt;path&gt;] [-ifind &lt;find command parameters&gt;] [-o &lt;output path&gt;] [-t &lt;template name&gt;] [-jsdoc &lt;jsdoc URL&gt;] [-pdf] [-info] [-infoinline] </p><p> <ul><li>-i &lt;path&gt;: path to the input directory Scriba will process in order to extract all the document creation section.<br/> Default: "./" </li><li>-ifind &lt;find command parameters&gt;: parameters to pass to find in order to give better control of which files Scriba will use when looking into files in order to find the document data.<br/> Default: "" </li><li>-o &lt;output path&gt;: the output directory path where we will create the documents stored in the given source code.<br/> Default: "./ScribaGen/" </li><li>-t &lt;template name&gt;: the name of the templates we will use to render the generated documents, the software is distributed with two templates "default" and "print".<br/> Default: "default" </li><li>-jsdoc &lt;jsdoc URL&gt;: tells Scriba to parse JSDoc information and to generate links whenever a module or function is referenced on the Scriba comments. The modules are referenced simply by stating their names as they appear on the JSDoc definition. For functions you need to write them in the form of Module.Function.<br/> Default: no JSDoc processing. </li><li>-pdf: Tells Scriba to generate a PDF file on top of the default HTML generated using an external tool.<br/> Default: no PDF generated </li><li>-info: Tells Scriba to print on the console a summary of lines of code, comments and Scriba comments.<br/> Default: no info printed </li><li>-infoinline: Tells Scriba to add to the generated document embedded inline information on what sections come from what files. It is useful for debug purposes.<br/> Default: no inline debug information on output </div> </ul> 
+    </p>
+</div><h2 id="scrb_3">2.2. Scriba Sections and Functionality</h2>
+<div class="scrb_chapter">
+    
+    <p>
+    At the moment we have done extensive tests both in Perl and JavaScript. In theory it should also work on C/C++/Java/... but more languages are going to be added in the future. </p><p> 
+    </p>
+</div><h3 id="scrb_4">2.2.1. Document Organization</h3>
+<div class="scrb_chapter">
+    
+    <p>
+     All the Scriba sections are comments which their initial characters are <b>scrb:</b> The content of the section will be stored to be part of the documentation. The section ends when the comment section ends.<br/> As we are simply putting the content from the source code into the generated HTML document we can use any HTML tag to format the output. But as reading the source from the text file could become complicated Scriba provides some easy to read short-codes that will transform into the proper HTML tag without loosing clarity on the plain text. <div class="code"> // scrb:<br/> // This section will be part of the documentation. </div> </p><p> If we find a Scriba section marker followed by a number <b>scrb: X</b> it means that the Scriba section does not end at the end of the comment but after <i>X</i> lines of comments that are empty.<br/> This feature is particularly useful when you want to integrate and reuse comments from other tools or purposes to be included as part of the generated documentation. <div class="code"> // scrb: 2<br/> // This section will be part of the documentation.<br/> // This section will also be part of the documentation.<br/> //<br/> // This section will also be part of the documentation.<br/> //<br/> // This section will <b>NOT</b> be part of the documentation<br/> // as it is part of some other documentation system like<br/> // JSDoc information.<br/> </div> </p><p>  Perhaps the most important feature is the way Scriba organizes documents and chapters. The way it works is that the Scriba software starts processing a file for Scriba document sections. There are two special section tags that tell to what <b>Document</b> and <b>Chapter</b> the next Scriba comments belong to. This is valid until the next time another document or chapter section occur.<br/> This means that once a document and chapter have been defined the next Scriba comments will all go into that specific chapter.<br/> For example this text is a good few comments below the following definition: <div class="code"> // scrb: Document: UserGuide<br/> // scrb: Chapter: 2.2. Scriba Sections and Functionality </div> </p><p> Note that the name of the <i>document</i> is going to be used as the file name for the document.<br/> Note that the chapter numbering has an implication on the type of HTML <i>heading</i> tag Scriba will use and the way the document index will look like. The numbering format Scriba understands follows the following pattern: <div class="code"> &lt;0-9&gt;+.[&lt;0-9&gt;+.[&lt;0-9&gt;+.[etc]]] </div> This means that X. AAAA will be an H1 type of heading.<br/> This means that X.Y. AAAA will be an H2 type of heading.<br/> This means that X.Y.Z. AAAA will be an H3 type of heading.<br/> </p><p> 
+    </p>
+</div><h3 id="scrb_5">2.2.2. Document Formatting</h3>
+<div class="scrb_chapter">
+    
+    <p>
+     If inside a Scriba section we find a line (or a series of lines) starting with an <b>asterisk</b> Scriba will transform them into an unordered list section. <div class="code"> // * Item 1<br/> // * Item 2<br/> // * Item 3<br/> // * Item 4<br/> </div> </p><p> Will be rendered the following way: <div class="example"> <ul><li>Item 1<br/> </li><li>Item 2<br/> </li><li>Item 3<br/> </li><li>Item 4<br/> </div> </ul></p><p> If inside a Scriba section we find a line (or a series of lines) starting with a <b>hash</b> Scriba will transform them into an ordered list section. <div class="code"> // # Item 1<br/> // # Item 2<br/> // # Item 3<br/> // # Item 4<br/> </div> </p><p> Will be rendered the following way: <div class="example"> <ol><li>Item 1<br/> </li><li>Item 2<br/> </li><li>Item 3<br/> </li><li>Item 4<br/> </div> </ol></p><p> If inside a Scriba section we find a comment line that contains only an <b>underscore</b> this will tell Scriba to insert a <i>paragraph break</i> at that point.<br/> If we find the <b>underscore</b> at the end of a line this will tell Scriba to insert a <i>line break</i> at that point. <div class="code"> // AAAA content, AAAA content, AAAA content, AAAA content<br/> // AAAA content, AAAA content, AAAA content, AAAA content<br/> // _<br/> // BBBB content, BBBB content, BBBB content, BBBB content_<br/> // BBBB content, BBBB content, BBBB content, BBBB content<br/> </div> </p><p> Will be rendered the following way: <div class="example"> AAAA content, AAAA content, AAAA content, AAAA content AAAA content, AAAA content, AAAA content, AAAA content </p><p> BBBB content, BBBB content, BBBB content, BBBB content<br/> BBBB content, BBBB content, BBBB content, BBBB content </div> </p><p> We can apply some basic formats to the text we are typing just by enclosing between special characters. <div class="code"> // <b>asterisks</b> for bold: *AAAA AAAA* content<br/> // <b>underscores</b> for italic: _BBBB BBBB_ content<br/> // <b>pluses</b> for underline: +CCCC CCCC+ content<br/> // <b>minuses</b> for strikeout: -DDDD DDDD- content<br/> </div> </p><p> Will be rendered the following way: <div class="example"> <b>asterisks</b> for bold: content <b>AAAA AAAA</b> content<br/> <b>underscores</b> for italic: <i>BBBB BBBB</i> content<br/> <b>pluses</b> for underline: <u>CCCC CCCC</u> content<br/> <b>minuses</b> for strikeout: <s>DDDD DDDD</s> content<br/> </div> </p><p> As the greater and less than symbols have special meaning in HTML we are going to need to escape them. If you want to use a &lt; or a &gt; you need to precede them with one backslash: &#92;&lt; and or &#92;&gt;. You can also use the HTML entity codes: &amp;lt; and &amp;gt; <div class="code"> // &#92;&lt;<br/> // &#92;&gt; </div> </p><p> Will be rendered the following way: <div class="example"> &lt;<br/> &gt; </div> </p><p> As the ampersand has special meaning when coding HTML entities we are going to need to escape them if we want to use them. If you want to use a &amp; you need to precede it with one backslash: &#92;&amp; You can always use the HTML entity: &amp;amp; <div class="code"> // &#92;&amp; </div> </p><p> Will be rendered the following way: <div class="example"> &amp; </div> </p><p> Scriba also provides the ability to escape any character in case it is useful: <div class="code"> // &#92;&#92;<br/> // &#92;A </div> </p><p> Will be rendered the following way: <div class="example"> \<br/> A </div> </p><p> We can also create a special Scriba section that will contain code taken directly from the application source. We mark the place where we want to start dumping code with the special key "scrb: code begin" and it will dump everything until we find "scrb: code end". <div class="code"> // scrb: code begin<br/> real application code<br/> // scrb: code end </div> </p><p> This will be rendered the following way: <pre class="code source_code">if($bInCommentsCode) {<br />    if($sCleanLine =~ /^\s*$refhParameters-&gt;{Scriba_ID}\s*code\s*end/) {<br />        $bInCommentsCode = 0;<br />        # replacing some special characters<br />        $sCleanCode =~ s/&lt;/&lt;/g;<br />        $sCleanCode =~ s/&gt;/&gt;/g;<br />        $sCleanCode =~ s/\n/&lt;br \/&gt;/g;<br />        # adding the code within code sections<br />        $refhDocStructure-&gt;{$sDocument}{$sChapter}{CONTENT} .= '&lt;pre class="code source_code"&gt;';<br />        $refhDocStructure-&gt;{$sDocument}{$sChapter}{CONTENT} .= $sCleanCode;<br />        $refhDocStructure-&gt;{$sDocument}{$sChapter}{CONTENT} .= '&lt;/pre&gt;';<br />    }<br />    else {<br />        # removing as many initial blank spaces as the first<br />        # initial line has<br />        if($sCleanCode eq "") {<br />            if($sLine =~ /^(\s+)/) {<br />                $sCleanCodeSpaces = $1;<br />            }<br />        }<br />        $sLine =~ s/^$sCleanCodeSpaces//;<br />        $sCleanCode .= $sLine . "\n";<br />    }<br />}<br /></pre>
+    </p>
+</div><h3 id="scrb_6">2.2.3. Linking with JSDoc</h3>
+<div class="scrb_chapter">
+    
+    <p>
+     One of the features we can activate is the linking of the Scriba generated documents with JSDoc. What will happen is that is we process some source code files that have properly encoded JSDoc tags Scriba is able to interpret them and then it can create links to the right JSDoc documentation.<br/> You can activate this option with the <i>-jsdoc</i> command line option where you can pass the URL to use as base direction for the links pointing to the JSDoc HTML page.<br/> Scriba will parse the content of each comment section looking for matching class names and functions and if found it will blindly create the link (meaning that Scriba will not check neither warn if the target URL is wrong or does not exist).<br/> The way to reference modules and functions to point to JSDoc documentation is the same used in JSDoc: <div class="code"> &lt;Module&gt;[(.#)&lt;Method&gt;] </div> 
+    </p>
+</div><h2 id="scrb_7">2.3. Statistical Information</h2>
+<div class="scrb_chapter">
+    
+    <p>
+     As Scriba processes all files on your project directory looking for comments and its contents, it can provide some information about the number of lines and number of comments found that might be of help.<br/> If you run the script with the <i>-info</i> switch at the end of the run it will print on the console something similar to this: <div class="code"> Building the documentation into "../doc" path<br/> Creating '../doc/DeveloperGuide.html'<br/> Creating '../doc/UserGuide.html'<br/> </p><p> lines: 11      comments:      6 / 54.55%  Scriba comments:      0 /  0.00%  ./build_documentation.sh&nbsp;<br/> lines: 1100    comments:    596 / 54.18%  Scriba comments:    436 / 73.15%  ./scriba.pl<br/> </p><p> TOTAL FILES: 2<br/> lines: 1111    comments:    602 / 54.19%  Scriba comments:    436 / 72.43%<br/> </div> This report tells you, first for each file and then as a total: <ul><li>The number of <i>lines</i> on the files (not lines of code, simply lines) </li><li>The number of comment lines we have detected. And a percentage based on the above number of lines. </li><li>The number of Scriba comment lines. And a percentage based on the above number of comments. 
+    </p>
+</div>
+        </div>
+    </body>
+</html>

@@ -131,6 +131,9 @@ a.button {
   -moz-border-radius: 30px;
   -webkit-border-radius: 30px;
 }
+a.button_2_3 {
+  width: 388px;
+}
 a.button:hover {
   background: #fafafa; /* Old browsers */
   background: -moz-linear-gradient(top,  #fdfdfd 0%, #f6f6f6 100%); /* FF3.6+ */
@@ -153,16 +156,26 @@ a.button span {
 }
 
 #download-zip span {
-  background: transparent url(../images/zip-icon.png) 12px 50% no-repeat;
+  background: transparent url(../images/zip.png) 12px 50% no-repeat;
 }
 #download-tar-gz span {
-  background: transparent url(../images/tar-gz-icon.png) 12px 50% no-repeat;
+  background: transparent url(../images/tar.png) 12px 50% no-repeat;
 }
 #view-on-github span {
   background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;
 }
+.download_pdf,
 #view-on-github {
-  margin-right: 0;
+  margin-right: 0 !important;
+}
+.download_pdf span {
+  background: transparent url(../images/pdf.png) 12px 50% no-repeat;
+}
+.read_html span {
+  background: transparent url(../images/html.png) 12px 50% no-repeat;
+}
+.read_doc {
+  margin-bottom: 20px;
 }
 
 code, pre {
@@ -297,13 +310,13 @@ blockquote {
 ul li {
   list-style-position: inside;
   list-style: disc;
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
 ol li {
   list-style-position: inside;
   list-style: decimal;
-  padding-left: 3px;
+  margin-left: 3px;
 }
 
 dl dt {
