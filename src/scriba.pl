@@ -95,7 +95,18 @@ use Cwd 'abs_path';
 sub help {
 
 # scrb: Document: UserGuide
-# scrb: Chapter: 2.1. Command Line Usage
+# scrb: Chapter: 2.1. Installation
+#
+# There is no installation as such, at the moment. To be able to use the
+# Scriba command line script the reccomendation is to simply create a link
+# to the src/scriba.pl on you local/user bin directory.
+#
+# <div class="code">
+# > cd ~/bin<br/>
+# > ln -s ~/dev/scriba/src/scriba.pl scriba
+# </div>
+#
+# scrb: Chapter: 2.2. Command Line Usage
 #
 # Srciba runs on the command line on Linux based system. It is a Perl script
 # that uses some standard Linux commands to perform some of the actions. For
@@ -407,7 +418,7 @@ sub processFiles {
             # different source files in completely different directories.
             # _
             while($sLine = <FILE>) {
-                # scrb: Chapter: 2.2. Scriba Sections and Functionality
+                # scrb: Chapter: 2.3. Scriba Sections and Functionality
                 $sCleanLine = "";
                 # counting source code lines
                 $refhFileInfo->{$sFile}{NUM_LINES} ++;
@@ -467,7 +478,7 @@ sub processFiles {
                     $refhFileInfo->{$sFile}{NUM_COMMENTS} ++;
                 }
 
-                # scrb: Chapter: 2.2.1. Document Organization
+                # scrb: Chapter: 2.3.1. Document Organization
                 #
                 # All the Scriba sections are comments which their initial
                 # characters are *scrb:* The content of the section will be
@@ -524,7 +535,7 @@ sub processFiles {
                             $bInCommentsLimit = 1;
                         }
                     }
-                    # scrb: Chapter: 2.2.2. Document Formatting
+                    # scrb: Chapter: 2.3.2. Document Formatting
                     #
                     # If inside a Scriba section we find a line (or a series
                     # of lines) starting with an *asterisk* Scriba will
@@ -725,7 +736,7 @@ sub processFiles {
                     # counting source code lines
                     $refhFileInfo->{$sFile}{NUM_Scriba_COMMENTS} ++;
 
-                    # scrb: Chapter: 2.2.1. Document Organization
+                    # scrb: Chapter: 2.3.1. Document Organization
                     #
                     # Perhaps the most important feature is the way Scriba
                     # organizes documents and chapters. The way it works is
@@ -742,7 +753,7 @@ sub processFiles {
                     # the following definition:
                     # <div class="code">
                     # // scrb: Document: UserGuide_
-                    # // scrb: Chapter: 2.2. Scriba Sections and Functionality
+                    # // scrb: Chapter: 2.3. Scriba Sections and Functionality
                     # </div>
                     # _
                     # Note that the name of the _document_ is going to be
@@ -808,7 +819,7 @@ sub processFiles {
                     }
                     #print "'" . $sCleanLine . "'\n";
                 }
-                # scrb: Chapter: 2.2.2. Document Formatting
+                # scrb: Chapter: 2.3.2. Document Formatting
                 # We can also create a special Scriba section that will contain
                 # code taken directly from the application source. We mark
                 # the place where we want to start dumping code with the
@@ -917,7 +928,7 @@ sub createDocuments {
             foreach my $sChapter (sort(keys %{$refhDocStructure->{$sDocument}})) {
                 my $sContent = $refhDocStructure->{$sDocument}{$sChapter}{CONTENT};
 
-                # scrb: Chapter: 2.2.3. Linking with JSDoc
+                # scrb: Chapter: 2.3.3. Linking with JSDoc
                 #
                 # One of the features we can activate is the linking of the
                 # Scriba generated documents with JSDoc. What will happen is
@@ -1045,7 +1056,7 @@ sub printFileInfo {
         my $fScribaCommentsLines = 0;
 
         # scrb: Document: UserGuide
-        # scrb: Chapter: 2.3. Statistical Information
+        # scrb: Chapter: 2.4. Statistical Information
         #
         # As Scriba processes all files on your project directory looking
         # for comments and its contents, it can provide some
