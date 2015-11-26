@@ -564,17 +564,60 @@ sub processFiles {
                     # * Item 4_
                     # </div>
                     # _
+                    # There is a feature to change the standard unordered list
+                    # discs for file tree icons to be able to easily represent
+                    # a files and folders structure. The only thing you need
+                    # to do is to add a wrapper div with the *file_tree* class
+                    # and to add a *dot* to any items you want to have the
+                    # file icon rather than the default folder icon:
+                    # <div class="code">
+                    # // \<div class="file_tree"\>_
+                    # // * Folder 1_
+                    # // * Folder 2_
+                    # // ** Folder 2.1_
+                    # // \*\*\*. File 2.1.1_
+                    # // \*\*\*. File 2.1.2_
+                    # // * Folder 3_
+                    # // **. File 3.1_
+                    # // **. File 3.2_
+                    # // * Folder 4_
+                    # // **. File 4.1_
+                    # // *. File 5_
+                    # // *. File 6_
+                    # // \</div\>
+                    # </div>
+                    # _
+                    # Will be rendered the following way:
+                    # <div class="file_tree">
+                    # * Folder 1_
+                    # * Folder 2_
+                    # ** Folder 2.1_
+                    # ***. File 2.1.1_
+                    # ***. File 2.1.2_
+                    # * Folder 3_
+                    # **. File 3.1_
+                    # **. File 3.2_
+                    # * Folder 4_
+                    # **. File 4.1_
+                    # *. File 5_
+                    # *. File 6_
+                    # </div>
+                    # _
 
                     # processing the line for inline text formating:
                     # "ul" sections
-                    if($sCleanLine =~ /^\s*(\*+)\s+(.+)/) {
+                    if($sCleanLine =~ /^\s*(\*+)(\.?)\s+(.+)/) {
                         my $iNumUls = length($1);
+                        my $sLastClass = '';
+                        if($2) {
+                            $sLastClass = ' class="last"';
+                        }
                         if($bInUlList < $iNumUls) {
                             $sCleanLine = "";
                             for(my $i = $bInUlList; $i < $iNumUls; $i ++) {
                                 $sCleanLine .= "<ul>";
                             }
-                            $sCleanLine .= "<li>$2";
+                            $sCleanLine .= "<li$sLastClass>$3";
                             $bInUlList = $iNumUls;
                         }
                         elsif($bInUlList > $iNumUls) {
@@ -582,11 +625,11 @@ sub processFiles {
                             for(my $i = $bInUlList; $i > $iNumUls; $i --) {
                                 $sCleanLine .= "</li></ul>";
                             }
-                            $sCleanLine .= "</li><li>$2";
+                            $sCleanLine .= "</li><li$sLastClass>$3";
                             $bInUlList = $iNumUls;
                         }
                         else {
-                            $sCleanLine = "</li><li>$2";
+                            $sCleanLine = "</li><li$sLastClass>$3";
                         }
                     }
 
