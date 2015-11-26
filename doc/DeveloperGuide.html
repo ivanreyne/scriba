@@ -25,6 +25,19 @@
                 font-size: 100%;
                 padding-left: 4em;
             }
+            ol {
+                counter-reset: item;
+            }
+            ol li {
+                display: block;
+            }
+            ol li:before {
+                content: counters(item, ".") ".  ";
+                counter-increment: item;
+            }
+            ul {
+                list-style-position:inside;
+            }
             .document {
                 background-color: #fff;
                 border: 1px #666 solid;
@@ -79,7 +92,7 @@
         <div class="document">
             <div class="index">
                 <h1>Index</h1>
-<p class="index index_1">
+                <p class="index index_1">
     <a href="#scrb_0">1. Introduction</a>
 </p><p class="index index_1">
     <a href="#scrb_1">2. Function Descriptions</a>
@@ -99,11 +112,11 @@
     <a href="#scrb_8">3. Scriba Flow</a>
 </p>
             </div>
-<h1 id="scrb_0">1. Introduction</h1>
+            <h1 id="scrb_0">1. Introduction</h1>
 <div class="scrb_chapter">
     
     <p>
-     Scriba is written in Perl. A single Perl script, at the moment, with no extra custom libraries. The structure of the code itself follows a few simple rules: <ul><li>Creating as many functions as needed to separated the processes. </li><li>The functions are organised at the top of the script file. </li><li>The body of the script contains as little code as possible, calling the previously defined. </li><li>As we use it as an example we will exaggerate a bit with the comments! :-D </ul> We try to maintain the code itself clean even though we are not following any specific coding standards. </p><p> The variable names have a one letter (or more, for references) prefix that denotes their type: <ul><li>b: boolean </li><li>i: integer numbers </li><li>f: floating point numbers </li><li>s: strings </li><li>a: arrays </li><li>h: hashes </li><li>o: objects </li><li>ref: reference to ... </ul> 
+     Scriba is written in Perl. A single Perl script, at the moment, with no extra custom libraries. The structure of the code itself follows a few simple rules: <ul><li>Creating as many functions as needed to separated the processes. </li><li>The functions are organised at the top of the script file. </li><li>The body of the script contains as little code as possible, calling the previously defined. </li><li>As we use it as an example we will exaggerate a bit with the comments! :-D </li></ul> We try to maintain the code itself clean even though we are not following any specific coding standards. </p><p> The variable names have a one letter (or more, for references) prefix that denotes their type: <ul><li>b: boolean </li><li>i: integer numbers </li><li>f: floating point numbers </li><li>s: strings </li><li>a: arrays </li><li>h: hashes </li><li>o: objects </li><li>ref: reference to ... </li></ul> 
     </p>
 </div><h1 id="scrb_1">2. Function Descriptions</h1>
 <div class="scrb_chapter">
@@ -151,7 +164,7 @@
 <div class="scrb_chapter">
     
     <p>
-    </ul> The Scriba software calls its functions/steps in the following order: <ul><li>checkArguments & help: to make sure we have been given all the information we need to run the software. </li><li>readTemplates: to read the templates we are going to use to generate the documentation. </li><li>processFiles: to extract the Scriba documentation information sections from the project source files. </li><li>createDocuments: to create the defined documents using the given templates </li><li>printFileInfo: if needed, to print the statistical information we have been collecting whilst processing the project source files. 
+    </li></ul> The Scriba software calls its functions/steps in the following order: <ul><li>checkArguments & help: to make sure we have been given all the information we need to run the software. </li><li>readTemplates: to read the templates we are going to use to generate the documentation. </li><li>processFiles: to extract the Scriba documentation information sections from the project source files. </li><li>createDocuments: to create the defined documents using the given templates </li><li>printFileInfo: if needed, to print the statistical information we have been collecting whilst processing the project source files. 
     </p>
 </div>
         </div>

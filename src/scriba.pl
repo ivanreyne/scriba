@@ -404,7 +404,8 @@ sub processFiles {
             my $bInCommentsCode = 0;
             my $bInCommentsLimit = 0;
             # to mark if we are in an "ul/ol" section
-            my $bInList = 0;
+            my $bInUlList = 0;
+            my $bInOlList = 0;
             # scrb:
             # Scriba will read the files and each time it detects that
             # we are inside a comments section the software will check if that
@@ -539,10 +540,16 @@ sub processFiles {
                     #
                     # If inside a Scriba section we find a line (or a series
                     # of lines) starting with an *asterisk* Scriba will
-                    # transform them into an unordered list section.
+                    # transform them into an unordered list section. You can
+                    # create levels of nested lists adding more *asterisks*
+                    # but there is currently a limitation: you can only
+                    # increment the nesting levels by one at a time (even though
+                    # then you can decrement as many as you want in one go).
                     # <div class="code">
                     # // * Item 1_
                     # // * Item 2_
+                    # // ** Item 2.1_
+                    # // *** Item 2.1.1_
                     # // * Item 3_
                     # // * Item 4_
                     # </div>
@@ -551,6 +558,8 @@ sub processFiles {
                     # <div class="example">
                     # * Item 1_
                     # * Item 2_
+                    # ** Item 2.1_
+                    # *** Item 2.1.1_
                     # * Item 3_
                     # * Item 4_
                     # </div>
@@ -558,23 +567,42 @@ sub processFiles {
 
                     # processing the line for inline text formating:
                     # "ul" sections
-                    if($sCleanLine =~ /^\s*\*\s+(.+)/) {
-                        if(!$bInList) {
-                            $sCleanLine = "<ul><li>$1";
-                            $bInList = 1;
+                    if($sCleanLine =~ /^\s*(\*+)\s+(.+)/) {
+                        my $iNumUls = length($1);
+                        if($bInUlList < $iNumUls) {
+                            $sCleanLine = "";
+                            for(my $i = $bInUlList; $i < $iNumUls; $i ++) {
+                                $sCleanLine .= "<ul>";
+                            }
+                            $sCleanLine .= "<li>$2";
+                            $bInUlList = $iNumUls;
+                        }
+                        elsif($bInUlList > $iNumUls) {
+                            $sCleanLine = "";
+                            for(my $i = $bInUlList; $i > $iNumUls; $i --) {
+                                $sCleanLine .= "</li></ul>";
+                            }
+                            $sCleanLine .= "</li><li>$2";
+                            $bInUlList = $iNumUls;
                         }
                         else {
-                            $sCleanLine = "</li><li>$1";
+                            $sCleanLine = "</li><li>$2";
                         }
                     }
 
                     # scrb:
                     # If inside a Scriba section we find a line (or a series
                     # of lines) starting with a *hash* Scriba will
-                    # transform them into an ordered list section.
+                    # transform them into an ordered list section. You can
+                    # create levels of nested lists adding more *hashes*
+                    # but there is currently a limitation: you can only
+                    # increment the nesting levels by one at a time (even though
+                    # then you can decrement as many as you want in one go).
                     # <div class="code">
                     # // # Item 1_
                     # // # Item 2_
+                    # // ## Item 2.1_
+                    # // ### Item 2.1.1_
                     # // # Item 3_
                     # // # Item 4_
                     # </div>
@@ -583,30 +611,51 @@ sub processFiles {
                     # <div class="example">
                     # # Item 1_
                     # # Item 2_
+                    # ## Item 2.1_
+                    # ### Item 2.1.1_
                     # # Item 3_
                     # # Item 4_
                     # </div>
                     # _
 
                     # "ol" sections
-                    if($sCleanLine =~ /^\s*\#\s+(.+)/) {
-                        if(!$bInList) {
-                            $sCleanLine = "<ol><li>$1";
-                            $bInList = 2;
+                    if($sCleanLine =~ /^\s*(\#+)\s+(.+)/) {
+                        my $iNumOls = length($1);
+                        if($bInOlList < $iNumOls) {
+                            $sCleanLine = "";
+                            for(my $i = $bInOlList; $i < $iNumOls; $i ++) {
+                                $sCleanLine .= "<ol>";
+                            }
+                            $sCleanLine .= "<li>$2";
+                            $bInOlList = $iNumOls;
+                        }
+                        elsif($bInOlList > $iNumOls) {
+                            $sCleanLine = "";
+                            for(my $i = $bInOlList; $i > $iNumOls; $i --) {
+                                $sCleanLine .= "</li></ol>";
+                            }
+                            $sCleanLine .= "</li><li>$2";
+                            $bInOlList = $iNumOls;
                         }
                         else {
-                            $sCleanLine = "</li><li>$1";
+                            $sCleanLine = "</li><li>$2";
                         }
                     }
                     # "ul" sections end
-                    if(($bInList == 1) && ($sCleanLine eq "")) {
-                        $sCleanLine = "</ul>";
-                        $bInList = 0;
+                    if(($bInUlList != 0) && ($sCleanLine eq "")) {
+                        $sCleanLine = "";
+                        for(my $i = $bInUlList; $i > 0; $i --) {
+                            $sCleanLine .= "</li></ul>";
+                        }
+                        $bInUlList = 0;
                     }
                     # "ol" sections end
-                    if(($bInList == 2) && ($sCleanLine eq "")) {
-                        $sCleanLine = "</ol>";
-                        $bInList = 0;
+                    if(($bInOlList != 0) && ($sCleanLine eq "")) {
+                        $sCleanLine = "";
+                        for(my $i = $bInOlList; $i > 0; $i --) {
+                            $sCleanLine .= "</li></ol>";
+                        }
+                        $bInOlList = 0;
                     }
 
                     # scrb:
@@ -637,13 +686,21 @@ sub processFiles {
                     if($sCleanLine eq "_") {
                         # having in mind we could have a paragraph break after
                         # a "ul" section
-                        if($bInList == 1) {
-                            $sCleanLine = "</ul></p><p>";
-                            $bInList = 0;
+                        if($bInUlList != 0) {
+                            $sCleanLine = "";
+                            for(my $i = $bInUlList; $i > 0; $i --) {
+                                $sCleanLine .= "</ul>";
+                            }
+                            $sCleanLine .= "</p><p>";
+                            $bInUlList = 0;
                         }
-                        elsif($bInList == 2) {
-                            $sCleanLine = "</ol></p><p>";
-                            $bInList = 0;
+                        elsif($bInOlList != 0) {
+                            $sCleanLine = "";
+                            for(my $i = $bInOlList; $i > 0; $i --) {
+                                $sCleanLine .= "</ol>";
+                            }
+                            $sCleanLine .= "</p><p>";
+                            $bInOlList = 0;
                         }
                         else {
                             $sCleanLine = "</p><p>";

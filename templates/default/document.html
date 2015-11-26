@@ -25,6 +25,19 @@
                 font-size: 100%;
                 padding-left: 4em;
             }
+            ol {
+                counter-reset: item;
+            }
+            ol li {
+                display: block;
+            }
+            ol li:before {
+                content: counters(item, ".") ".  ";
+                counter-increment: item;
+            }
+            ul {
+                list-style-position:inside;
+            }
             .document {
                 background-color: #fff;
                 border: 1px #666 solid;
@@ -79,9 +92,9 @@
         <div class="document">
             <div class="index">
                 <h1>Index</h1>
-{$scrb_index}
+                {$scrb_index}
             </div>
-{$scrb_chapters}
+            {$scrb_chapters}
         </div>
     </body>
 </html>
